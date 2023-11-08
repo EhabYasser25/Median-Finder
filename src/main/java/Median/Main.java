@@ -17,8 +17,8 @@ public class Main {
         return randomArray;
     }
 
-    public static int[] calculateTime(int size) {
-        int[] totalTime = {0, 0, 0};
+    public static long[] calculateTime(int size) {
+        long[] totalTime = {0, 0, 0};
         int sizesNum = 5;
         int num = 5;
         boolean correctness = true;
@@ -35,9 +35,9 @@ public class Main {
 
             for (int j = 0; j < algorithms.length; j++) {
                 for (int k = 0; k < num; k++) {
-                    int start = (int) System.currentTimeMillis();
+                    long start = System.currentTimeMillis();
                     medians[j] = algorithms[j].getMedian();
-                    int end = (int) System.currentTimeMillis();
+                    long end = System.currentTimeMillis();
                     totalTime[j] += end-start;
                 }
             }
@@ -60,14 +60,14 @@ public class Main {
             csvPrinter.printRecord("Size", "NaiveMedian", "RandomizedMedian", "DeterministicMedian");
 
             for (int size = 200000; size <= 10000000; size += 200000) {
-                int[] time = calculateTime(size);
+                long[] times = calculateTime(size);
 
-                csvPrinter.printRecord(size, time[0], time[1], time[2]);
+                csvPrinter.printRecord(size, times[0], times[1], times[2]);
 
                 System.out.println("Size: " + size);
-                System.out.println("NaiveMedian Time (ms): " + time[0]);
-                System.out.println("RandomizedMedian Time (ms): " + time[1]);
-                System.out.println("DeterministicMedian Time (ms): " + time[2]);
+                System.out.println("NaiveMedian Time (ms): " + times[0]);
+                System.out.println("RandomizedMedian Time (ms): " + times[1]);
+                System.out.println("DeterministicMedian Time (ms): " + times[2]);
                 System.out.println();
             }
         } catch (IOException e) {

@@ -33,3 +33,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+Chart2.png
+results2.csv
+src/main/java/Median/Algorithms/NaiveMedian.java
+src/main/java/Median/kthSmallestElement.java
+src/main/java/Median/Main1.java
+src/main/java/Median/Main2.java
+src/main/java/Median/Select.java
